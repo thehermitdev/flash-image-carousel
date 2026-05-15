@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export default function ImageCarousel() {
-  const [cards] = useState([
-    { id: 1, url: "src/assets/image-1.jpg", text: "Element 1" },
-    { id: 2, url: "src/assets/image-2.jpg", text: "Element 2" },
-    { id: 3, url: "src/assets/image-3.jpg", text: "Element 3" },
-  ]);
+const cards = [
+  { id: 1, url: "src/assets/image-1.jpg", title: "Element 1" },
+  { id: 2, url: "src/assets/image-2.jpg", title: "Element 2" },
+  { id: 3, url: "src/assets/image-3.jpg", title: "Element 3" },
+];
 
+export default function ImageCarousel() {
   const [offset, setOffset] = useState(0);
   const [animatingId, setAnimatingId] = useState<number | null>(null);
 
@@ -44,8 +44,8 @@ export default function ImageCarousel() {
             className={className}
             onClick={posIndex === 0 ? () => handleSwap(image.id) : undefined}
           >
-            <img src={image.url} alt={image.text} />
-            <figcaption>{image.text}</figcaption>
+            <img src={image.url} alt={image.title} />
+            <figcaption>{image.title}</figcaption>
           </figure>
         );
       })}
